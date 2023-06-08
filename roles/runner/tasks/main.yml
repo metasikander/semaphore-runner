@@ -27,4 +27,4 @@
 
 - name: Get tasks
   ansible.builtin.uri:
-    url: "{{ runner_base_url }}/project/{{ runner_projects.content.id }}/tasks"
+    url: "{{ runner_base_url }}/project/{{ runner_projects.ansible_host.content[0].id }}/tasks"
