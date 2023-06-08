@@ -2,6 +2,6 @@
 - name: Run runner role
   hosts: all
   become: false
-  
+
   roles:
     - runner
