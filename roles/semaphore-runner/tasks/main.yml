@@ -1,0 +1,4 @@
+---
+- ansible.builtin.uri:
+    url: https://sem.lhote.me/api/ping
+    method: GET

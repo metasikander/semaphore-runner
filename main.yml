@@ -1,0 +1,7 @@
+---
+- name: Run runner role
+  hosts: all
+  become: false
+  
+  roles:
+    - semaphore-runner
