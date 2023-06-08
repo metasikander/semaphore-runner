@@ -2,7 +2,23 @@
 - ansible.builtin.uri:
     url: https://sem.lhote.me/api/ping
     method: GET
-  register: result
+    return_content: true
 
-- ansible.builtin.debug:
-    var: result
+- name: Log in
+  ansible.builtin.uri:
+    url: "{{ base_url }}/login"
+    method: POST
+    body_format: json
+    body:
+      name: "{{ api_user }}"
+      password: "{{ api_user_password }}"
+    status_code: 204
+  register: login
+
+- name: Get projects
+  ansible.builtin.uri:
+    url: "{{ base_url }}/login"
+    method: GET
+    return_content: true
+    headers:
+      Cookie: "{{ login.cookies_string }}"
