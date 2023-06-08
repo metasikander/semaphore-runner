@@ -23,3 +23,8 @@
     return_content: true
     headers:
       Cookie: "{{ runner_login.cookies_string }}"
+  register: runner_projects
+
+- name: Get tasks
+  ansible.builtin.uri:
+    url: "{{ runner_base_url }}/project/{{ runner_projects.json.id }}/tasks"
