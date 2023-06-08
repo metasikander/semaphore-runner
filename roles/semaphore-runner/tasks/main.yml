@@ -1,6 +1,6 @@
 ---
 - ansible.builtin.uri:
-    url: https://sem.lhote.me/api/ping
+    url: https://sem.lhote.me/api/info
     method: GET
   register: result
 
