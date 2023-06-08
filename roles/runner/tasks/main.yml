@@ -18,7 +18,7 @@
 
 - name: Get projects
   ansible.builtin.uri:
-    url: "{{ runner_base_url }}/login"
+    url: "{{ runner_base_url }}/projects"
     method: GET
     return_content: true
     headers:
