@@ -4,4 +4,4 @@
   become: false
   
   roles:
-    - semaphore-runner
+    - runner
