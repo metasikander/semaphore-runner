@@ -38,7 +38,7 @@
     method: POST
     body_format: json
     body:
-      template_id: "{{ runner_tasks.json[0].template_id }}" 
+      template_id: "{{ runner_tasks.json[0].template_id | int }}"
       debug: false
       dry_run: false
       playbook: "{{ runner_tasks.json[0].tpl_playbook }}"
