@@ -11,7 +11,7 @@
     method: POST
     body_format: json
     body:
-      name: "{{ runner_api_user }}"
+      auth: "{{ runner_api_user }}"
       password: "{{ runner_api_user_password }}"
     status_code: 204
   register: runner_login
