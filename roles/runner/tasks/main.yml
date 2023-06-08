@@ -42,7 +42,8 @@
       template_id: 4
       debug: false
       dry_run: false
-      playbook: "{{ runner_tasks.json[0].tpl_playbook }}"
+#     playbook: "{{ runner_tasks.json[0].tpl_playbook }}"
+      playbook: ping.yml
 #     environment: "{{ runner_tasks.json[0].environment }}"
       environment: "{}"
     headers:
