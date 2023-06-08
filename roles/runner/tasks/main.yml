@@ -43,6 +43,7 @@
       debug: false
       dry_run: false
       playbook: "{{ runner_tasks.json[0].tpl_playbook }}"
-      environment: "{{ runner_tasks.json[0].environment }}"
+#     environment: "{{ runner_tasks.json[0].environment }}"
+      environment: "{}"
     headers:
       Cookie: "{{ runner_login.cookies_string }}"
