@@ -1,25 +1,25 @@
 ---
 - name: Ping
   ansible.builtin.uri:
-    url: "{{ semaphore-runner_base_url }}/ping"
+    url: "{{ runner_base_url }}/ping"
     method: GET
     return_content: true
 
 - name: Log in
   ansible.builtin.uri:
-    url: "{{ semaphore-runner_base_url }}/login"
+    url: "{{ runner_base_url }}/login"
     method: POST
     body_format: json
     body:
-      name: "{{ semaphore-runner_api_user }}"
-      password: "{{ semaphore-runner_api_user_password }}"
+      name: "{{ runner_api_user }}"
+      password: "{{ runner_api_user_password }}"
     status_code: 204
-  register: semaphore_runner_login
+  register: runner_login
 
 - name: Get projects
   ansible.builtin.uri:
-    url: "{{ semaphore-runner_base_url }}/login"
+    url: "{{ runner_base_url }}/login"
     method: GET
     return_content: true
     headers:
-      Cookie: "{{ semaphore-runner_login.cookies_string }}"
+      Cookie: "{{ runner_login.cookies_string }}"

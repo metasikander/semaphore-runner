@@ -1,5 +1,4 @@
 ---
-# defaults file for semaphore-runner
-semaphore-runner_base_url: https://sem.lhote.me/api/
-semaphore-runner_api_user: semrun
-semaphore-runner_api_user_password: test123
+runner_base_url: https://sem.lhote.me/api/
+runner_api_user: semrun
+runner_api_user_password: test123
