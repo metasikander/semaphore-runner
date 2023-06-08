@@ -30,7 +30,7 @@
     url: "{{ runner_base_url }}/project/{{ ((runner_projects.content | from_json) | selectattr('name', 'equalto', 'test') | first).id }}/tasks"
     headers:
       Cookie: "{{ runner_login.cookies_string }}"
-    register: runner_tasks
+  register: runner_tasks
 
 - name: Run task
   ansible.builtin.uri:
