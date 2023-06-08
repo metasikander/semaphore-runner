@@ -28,6 +28,20 @@
 - name: Get tasks
   ansible.builtin.uri:
     url: "{{ runner_base_url }}/project/{{ ((runner_projects.content | from_json) | selectattr('name', 'equalto', 'test') | first).id }}/tasks"
-#   url: "{{ runner_base_url }}/project/{{ (runner_projects.content | from_json)[0].id }}/tasks"
+    headers:
+      Cookie: "{{ runner_login.cookies_string }}"
+    register: runner_tasks
+
+- name: Run task
+  ansible.builtin.uri:
+    url: "{{ runner_base_url }}/project/{{ ((runner_projects.content | from_json) | selectattr('name', 'equalto', 'test') | first).id }}/tasks"
+    method: POST
+    body_format: json
+    body:
+      template_id: "{{ runner_tasks.json[0].template_id }}" 
+      debug: false
+      dry_run: false
+      playbook: "{{ runner_tasks.json[0].tpl_playbook }}"
+      environment: "{{ runner_tasks.json[0].environment }}"
     headers:
       Cookie: "{{ runner_login.cookies_string }}"
