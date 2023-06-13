@@ -46,5 +46,6 @@
       playbook: ping.yml
 #     environment: "{{ runner_tasks.json[0].environment }}"
       environment: "{}"
+    status_code: 201
     headers:
       Cookie: "{{ runner_login.cookies_string }}"
